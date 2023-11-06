@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  backend_countries:
+    container_name: backend_countries
+    image: backend_countries_image
+    build:
+      context: ./backend
+    networks:
+      - countries_site_app
+    volumes:
+      - ./backend:/app
+  frontend_countries:
+    container_name: frontend_countries
+    image: frontend_countries_image
+    build:
+      context: ./frontend
+    networks:
+      - countries_site_app
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend_countries
+  nginx:
+    image: nginx
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - frontend_countries
+      - backend_countries
+    networks:
+      - countries_site_app
+networks:
+  countries_site_app:
+    driver: bridge

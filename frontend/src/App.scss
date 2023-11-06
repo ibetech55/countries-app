@@ -1,0 +1,103 @@
+@import 'variables.scss';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: $font-stack;
+}
+
+select {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    font-size: 16px;
+    border-radius: 5px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+header {
+    background-color: $primary-color;
+    margin-bottom: 20px;
+
+    h1 {
+        text-align: center;
+        padding: 40px 0;
+        font-size: 52px;
+        color: #fff;
+    }
+}
+
+label,
+input {
+    display: block;
+    width: 100%;
+}
+
+label {
+    margin-bottom: 5px;
+    color: $gray-color;
+    font-weight: bold;
+}
+
+input {
+    font-size: 16px;
+    padding: 8px 10px;
+    border: 1px solid $light-gray;
+    border-radius: 5px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+
+
+form {
+    .form-control {
+        margin-bottom: 20px;
+
+        .error {
+            display: block;
+            color: red;
+            margin-top: 5px;
+        }
+    }
+
+    .form-control:last-child {
+        margin-bottom: none;
+    }
+
+    .form-submit {
+        text-align: right;
+    }
+}
+
+button {
+    background-color: $primary-color;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 28px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($color: $primary-color, $amount: 10);
+    }
+}
+
+
+.cancel-button {
+    background-color: red
+}
+
+@import './Pages/Home/home.scss';
+@import './Pages/Admin/admin.scss';
+@import './Components/AccessModal/AccessModal.scss';

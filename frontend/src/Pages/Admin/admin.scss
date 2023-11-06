@@ -1,0 +1,23 @@
+.admin {
+    .country-form {
+        width: 55%;
+        margin: 60px auto 20px auto;
+    }
+
+    .top-container {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        .select-container {
+            margin: 0 20px 0 0;
+        }
+
+        .buttons {
+            button:first-child {
+                margin-right: 10px;
+            }
+        }
+    }
+
+}
