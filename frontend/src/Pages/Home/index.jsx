@@ -9,7 +9,7 @@ function Home() {
 
 
     const getCountriesSelect = async () => {
-        const { data } = await axios.get('http://127.0.0.1:8000/api/countries')
+        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/countries`)
         setCountries([{ id: '111', countryName: '------' }, ...data])
     }
 
@@ -127,21 +127,21 @@ function Home() {
                         </div>
 
                         <div className="country-data_flag">
-                            <img src={`http://127.0.0.1:8000/api/Images/${countrySelected.flag}`} alt="" />
+                            <img src={`${process.env.REACT_APP_BACKEND_URL}/Images/${countrySelected.flag}`} alt="" />
                         </div>
                     </div>
 
                     <div className="country-photos">
                         <div className="country-photo">
-                            <img src={`http://127.0.0.1:8000/api/Images/${countrySelected.countryMap}`} alt="" />
+                            <img src={`${process.env.REACT_APP_BACKEND_URL}/Images/${countrySelected.countryMap}`} alt="" />
 
                         </div>
                         <div className="country-photo">
-                            <img src={`http://127.0.0.1:8000/api/Images/${countrySelected.presidentImage}`} alt="" />
+                            <img src={`${process.env.REACT_APP_BACKEND_URL}/Images/${countrySelected.presidentImage}`} alt="" />
 
                         </div>
                         <div className="country-photo">
-                            <img src={`http://127.0.0.1:8000/api/Images/${countrySelected.coatOfArms}`} alt="" />
+                            <img src={`${process.env.REACT_APP_BACKEND_URL}/Images/${countrySelected.coatOfArms}`} alt="" />
                         </div>
                     </div>
                 </div>}

@@ -34,7 +34,7 @@ const Admin = () => {
     const [loading, setLoading] = useState(false);
 
     const getCountriesSelect = async () => {
-        const { data } = await axios.get('http://127.0.0.1/api/countries')
+        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/countries`)
         setData([...data])
         setCountries([{ id: '111', countryName: '------' }, ...data])
     }
@@ -62,7 +62,7 @@ const Admin = () => {
                 formData.set(x[0], x[1])
             }
         })
-        const { data } = await axios.post('http://127.0.0.1/api/countries', formData)
+        const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/countries`, formData)
         window.localStorage.setItem('newData', JSON.stringify(data))
 
         setTimeout(function () {
